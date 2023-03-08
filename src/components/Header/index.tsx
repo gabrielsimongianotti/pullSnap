@@ -1,4 +1,4 @@
-import Link from "next/link";
+// import Link from "next/link";
 import { HeaderContainer, HeaderContent } from "./styles";
 
 export function Header() {

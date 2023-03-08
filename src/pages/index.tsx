@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Head from "next/head";
-import { Inter } from "next/font/google";
+// import { Inter } from "next/font/google";
 import { HomeContainer, HomeContent } from "@/styles/home";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
 import bannerImg from "../assets/banner.svg";
+import { Search } from "@/components/Search";
 
 export default function Home() {
   return (
@@ -18,10 +19,8 @@ export default function Home() {
       </Head>
       <HomeContainer>
         <HomeContent>
-          <input type="text" />
-          <button>Pesquisar</button>
-
-          <Image src={bannerImg} alt="" />
+          <Search />
+          <Image src={bannerImg} alt="" priority />
         </HomeContent>
       </HomeContainer>
     </>
