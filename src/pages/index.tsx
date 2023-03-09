@@ -1,14 +1,31 @@
 import Image from "next/image";
 import Head from "next/head";
-// import { Inter } from "next/font/google";
 import { HomeContainer, HomeContent } from "@/styles/home";
-
-// const inter = Inter({ subsets: ["latin"] });
-
-import bannerImg from "../assets/banner.svg";
+import bannerImg from "@/assets/banner.svg";
 import { Search } from "@/components/Search";
+import { api } from "@/services/api";
+interface responseProp {
+  user: {
+    login: string
+  }
+}
 
 export default function Home() {
+    const searchPullRequest =async (prUrl:string)=>{
+      const match: RegExpMatchArray | null= prUrl.match(/https:\/\/github\.com\/([^/]+)\/([^/]+)\/pull\/(\d+)/);
+      if (match) {
+        const owner: string = match[1];
+        const repo: string = match[2];
+        const pull_number: string = match[3];
+        const response = await api
+          .get<responseProp>(`/repos/${owner}/${repo}/pulls/${pull_number}`)
+          .catch(error=>{console.log(error)})
+        console.log(response?.data.user.login, repo)
+      } else {
+        console.log('Invalid URL');
+      }
+    } 
+  
   return (
     <>
       <Head>
@@ -19,7 +36,7 @@ export default function Home() {
       </Head>
       <HomeContainer>
         <HomeContent>
-          <Search />
+          <Search label='Link do Pull Request' textButton="Pesquisar" action={(url)=>searchPullRequest(url)}/>
           <Image src={bannerImg} alt="" priority />
         </HomeContent>
       </HomeContainer>

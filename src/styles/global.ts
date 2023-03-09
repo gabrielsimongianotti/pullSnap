@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
 }
 :focus {
     outline: 0;
-    box-shadow: 0 0 0 2px ${({ theme }) => theme.white};
+    box-shadow: 0 0 0 2px ${({ theme }) => theme.border};
   }
 
 
@@ -19,7 +19,7 @@ html{
 
 body{
   background: ${({ theme }) => theme.black};
-  color: ${({ theme }) => theme.white};
+  color: ${({ theme }) => theme.title};
 
   -webkit-font-smoothing: antialiased;
 
