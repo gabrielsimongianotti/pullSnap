@@ -1,9 +1,14 @@
+import React, { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import Head from "next/head";
-import { HomeContainer, HomeContent } from "@/styles/home";
+
 import bannerImg from "@/assets/banner.svg";
 import { Search } from "@/components/Search";
 import { api } from "@/services/api";
+
+import { HomeContainer, HomeContent } from "@/styles/home";
+
+import { AppContext } from "@/context";
 interface responseProp {
   user: {
     login: string;
@@ -11,6 +16,17 @@ interface responseProp {
 }
 
 export default function Home() {
+  const [repoPullReq, setRepoPullReq] = useState(""); //nome do repositorio
+  const [pullReqData, setPullReqData] = useState({});
+  const [userAvatarUrl, setUserAvatarUrl] = useState(""); //url do avatar do usuario
+  const [urlPullRepo, setUrlPullRepo] = useState(""); //url do pull request
+  const [user, setUser] = useState({}); //usuario
+
+  const [userHtmlUrl, setUserHtmlUrl] = useState(""); //url do usuario para buscar o name description
+  const [userNameDescription, setUserNameDescription] = useState("");
+
+  const context = useContext(AppContext);
+
   const searchPullRequest = async (prUrl: string) => {
     const match: RegExpMatchArray | null = prUrl.match(
       /https:\/\/github\.com\/([^/]+)\/([^/]+)\/pull\/(\d+)/
@@ -24,12 +40,43 @@ export default function Home() {
         .catch((error) => {
           console.log(error);
         });
-      console.log(response?.data.user.login, repo);
-      console.log(response);
-    } else {
+      // console.log(response?.data.user.login, repo);
+      setUser(response.data.user.login);
+      // console.log(response.data);
+      setUrlPullRepo(prUrl); //url do pull request
+      setRepoPullReq(repo); //nome do repositorio
+      setPullReqData(response.data);
+      setUserAvatarUrl(response.data.user.avatar_url); //url do avatar do usuario
+      setUserHtmlUrl(response.data.user.url); //url do usuario para buscar o name description
+
+      const responseName = await api
+        .get(`/users/${user}`)
+        .then((responseNameData) => {
+          setUserNameDescription(responseNameData.data.name);
+        });
+
+      console.log(userNameDescription);
+    }
+    // if (userHtmlUrl !== "") {
+    //   const responseName = await api.get(`/users/${user}`);
+    //   setUserNameDescription(responseName.data.name);
+    // }
+    else {
       console.log("Invalid URL");
     }
   };
+
+  if (userNameDescription !== "") {
+    useEffect(() => {
+      const user = {
+        urlPullRequest: urlPullRepo,
+        repo: repoPullReq,
+        imgUrl: userAvatarUrl,
+        nameDescription: userNameDescription,
+      };
+      context.updateUser(user);
+    }, []);
+  }
 
   return (
     <>
