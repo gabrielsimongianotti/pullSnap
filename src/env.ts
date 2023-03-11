@@ -1,4 +1,4 @@
 
 export const env = {
-  token: process.env.NEXT_PUBLIC_FB_TOKEN ?? 'your token of github',
+  token: process.env.NEXT_PUBLIC_GITHUB_TOKEN ?? 'your token of github',
 }
