@@ -1,4 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import Head from "next/head";
 
@@ -18,9 +19,7 @@ interface responseUserProp {
   name: string;
 }
 export default function Home() {
-
-  const [userInfoGithub, setUserInfoGithub] = useState();
-
+  const router = useRouter()
   const context = useContext(AppContext);
 
   const searchPullRequest = async (prUrl: string) => {
@@ -47,25 +46,12 @@ export default function Home() {
         }
 
         context.updateUser(infoUser);
+        router.push('/post')
     }
-    // if (userHtmlUrl !== "") {
-    //   const responseName = await api.get(`/users/${user}`);
-    //   setUserNameDescription(responseName.data.name);
-    // }
     else {
       console.log("Invalid URL");
     }
   };
-
-    useEffect(() => {
-      // const user = {
-      //   urlPullRequest: urlPullRepo,
-      //   repo: repoPullReq,
-      //   imgUrl: userAvatarUrl,
-      //   nameDescription: userNameDescription,
-      // };
-      // context.updateUser(user);
-    }, []);
 
   return (
     <>
