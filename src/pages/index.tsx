@@ -9,21 +9,17 @@ import { api } from "@/services/api";
 import { HomeContainer, HomeContent } from "@/styles/home";
 
 import { AppContext } from "@/context";
-interface responseProp {
+interface responsePullRequestProp {
   user: {
     login: string;
   };
 }
-
+interface responseUserProp {
+  name: string;
+}
 export default function Home() {
-  const [repoPullReq, setRepoPullReq] = useState(""); //nome do repositorio
-  const [pullReqData, setPullReqData] = useState({});
-  const [userAvatarUrl, setUserAvatarUrl] = useState(""); //url do avatar do usuario
-  const [urlPullRepo, setUrlPullRepo] = useState(""); //url do pull request
-  const [user, setUser] = useState({}); //usuario
 
-  const [userHtmlUrl, setUserHtmlUrl] = useState(""); //url do usuario para buscar o name description
-  const [userNameDescription, setUserNameDescription] = useState("");
+  const [userInfoGithub, setUserInfoGithub] = useState();
 
   const context = useContext(AppContext);
 
@@ -36,26 +32,21 @@ export default function Home() {
       const repo: string = match[2];
       const pull_number: string = match[3];
       const response = await api
-        .get<responseProp>(`/repos/${owner}/${repo}/pulls/${pull_number}`)
+        .get<responsePullRequestProp>(`/repos/${owner}/${repo}/pulls/${pull_number}`)
         .catch((error) => {
           console.log(error);
         });
-      // console.log(response?.data.user.login, repo);
-      setUser(response.data.user.login);
-      // console.log(response.data);
-      setUrlPullRepo(prUrl); //url do pull request
-      setRepoPullReq(repo); //nome do repositorio
-      setPullReqData(response.data);
-      setUserAvatarUrl(response.data.user.avatar_url); //url do avatar do usuario
-      setUserHtmlUrl(response.data.user.url); //url do usuario para buscar o name description
+      console.log(response?.data.user.login, repo);
 
-      const responseName = await api
-        .get(`/users/${user}`)
-        .then((responseNameData) => {
-          setUserNameDescription(responseNameData.data.name);
-        });
+      const responseUser  = await api
+        .get<responseUserProp>(`/users/${response?.data.user.login}`)
+       
+        const infoUser ={
+          name: responseUser?.data.name,
+          repo
+        }
 
-      console.log(userNameDescription);
+        context.updateUser(infoUser);
     }
     // if (userHtmlUrl !== "") {
     //   const responseName = await api.get(`/users/${user}`);
@@ -66,17 +57,15 @@ export default function Home() {
     }
   };
 
-  if (userNameDescription !== "") {
     useEffect(() => {
-      const user = {
-        urlPullRequest: urlPullRepo,
-        repo: repoPullReq,
-        imgUrl: userAvatarUrl,
-        nameDescription: userNameDescription,
-      };
-      context.updateUser(user);
+      // const user = {
+      //   urlPullRequest: urlPullRepo,
+      //   repo: repoPullReq,
+      //   imgUrl: userAvatarUrl,
+      //   nameDescription: userNameDescription,
+      // };
+      // context.updateUser(user);
     }, []);
-  }
 
   return (
     <>
@@ -91,7 +80,7 @@ export default function Home() {
           <Search
             label="Link do Pull Request"
             textButton="Pesquisar"
-            action={(url) => searchPullRequest(url)}
+            action={(url) => searchPullRequest("https://github.com/nodejs/node/pull/46900")}
           />
           <Image src={bannerImg} alt="" priority />
         </HomeContent>

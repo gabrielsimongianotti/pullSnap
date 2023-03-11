@@ -1,10 +1,8 @@
 import React, { createContext, useState } from "react";
 
 interface IUser {
-  urlPullRequest: string;
   repo: string;
-  imgUrl: string;
-  nameDescription: string;
+  name: string;
 }
 
 interface IAppContext {
