@@ -1,6 +1,10 @@
-import { CardContainer, CardContent, CardH1, CardSpan } from "./styles";
+import { 
+  CardContainer, 
+  CardContent, 
+  CardH1, 
+  CardSpan 
+} from "./styles";
 
-import bkImgGreen from "../../assets/bgCardGreen.jpg";
 import Image, { StaticImageData } from "next/image";
 
 interface CardProps {

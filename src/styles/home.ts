@@ -16,6 +16,6 @@ export const HomeContent = styled.div`
   img {
     width: 100%;
     height: 100%;
-    padding-top: 4rem;
+    padding-top: 5.6rem;
   }
 `;

@@ -40,11 +40,10 @@ const textTheme = {
 
 export default function Post() {
   const context = useContext(AppContext);
-
-  const [selectTheme, setSelectTheme] = useState(textTheme.green.background);
-  const [selectThemeText, setSelectThemeText] = useState(textTheme.green.color);
+  const [theme, setTheme] = useState<'blue'|'green'|'orange'>("green");
   const [name, setName] = useState(context.user?.name);
   const repo = context.user?.repo;
+
   return (
     <PostContainer>
       <PostContent>
@@ -54,33 +53,30 @@ export default function Post() {
           action={(name) => setName(name)}
         />
         <Card
-          colorTheme={selectThemeText}
-          image={selectTheme}
+          colorTheme={textTheme[theme]['color']}
+          image={textTheme[theme]['background']}
           title={name}
-          subtitle={`Fez uma contribuição para o repositório ${repo}`}
+          subtitle={`Fez uma contribuição para o repositório sdf sd fsdf ${repo}`}
         />
         <footer>
           <div>
             <PostThemeButton
               onClick={() => {
-                setSelectTheme(textTheme.orange.background);
-                setSelectThemeText(textTheme.orange.color);
+                setTheme("orange")
               }}
             >
               <ThemeButtonOrange />
             </PostThemeButton>
             <PostThemeButton
               onClick={() => {
-                setSelectTheme(textTheme.green.background);
-                setSelectThemeText(textTheme.green.color);
+                setTheme("green")
               }}
             >
               <ThemeButtonGreen />
             </PostThemeButton>
             <PostThemeButton
               onClick={() => {
-                setSelectTheme(textTheme.blue.background);
-                setSelectThemeText(textTheme.blue.color);
+                setTheme('blue')
               }}
             >
               <ThemeButtonBlue />
@@ -88,11 +84,8 @@ export default function Post() {
           </div>
 
           <PostDownloadButton
-            onClick={() => {
-              setSelectTheme(themeBk.green);
-            }}
           >
-            Download
+            <Banner name={name}  repo={repo} theme={theme}/>
           </PostDownloadButton>
         </footer>
       </PostContent>

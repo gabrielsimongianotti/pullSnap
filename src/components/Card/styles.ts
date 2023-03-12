@@ -23,16 +23,20 @@ export const CardContent = styled.div`
 
 export const CardH1 = styled.h1`
   color: ${(props) => props.color};
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-size: 4rem;
+  max-width: 60%;
   position: absolute;
   top: 1.7rem;
   left: 13.3rem;
 `;
 
 export const CardSpan = styled.span`
-  max-width: 46rem;
   color: ${(props) => props.color};
   font-size: 2rem;
+  max-width: 60%;
   position: absolute;
   top: 8rem;
   left: 13.3rem;

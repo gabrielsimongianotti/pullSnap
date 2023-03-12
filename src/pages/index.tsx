@@ -10,6 +10,7 @@ import { api } from "@/services/api";
 import { HomeContainer, HomeContent } from "@/styles/home";
 
 import { AppContext } from "@/context";
+
 interface responsePullRequestProp {
   user: {
     login: string;
@@ -66,7 +67,7 @@ export default function Home() {
           <Search
             label="Link do Pull Request"
             textButton="Pesquisar"
-            action={(url) => searchPullRequest("https://github.com/nodejs/node/pull/46900")}
+            action={(url) => searchPullRequest(url)}
           />
           <Image src={bannerImg} alt="" priority />
         </HomeContent>

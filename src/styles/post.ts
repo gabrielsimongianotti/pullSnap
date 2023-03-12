@@ -41,7 +41,7 @@ export const PostContent = styled.div`
   }
 `;
 
-export const PostThemeButton = styled.button`
+export const PostThemeButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;

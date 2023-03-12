@@ -1,5 +1,4 @@
 import React from 'react';
-import dynamic from 'next/dynamic'
 import { 
   PDFDownloadLink, 
   Document, 
@@ -9,7 +8,12 @@ import {
   StyleSheet, 
   Text
 } from '@react-pdf/renderer';
-import asjkdf from "../../assets/bgCardGreen.jpg"
+
+interface prfProps {
+  name?: string,
+  repo?: string,
+  theme: "green" | "blue" | "orange"
+} 
 
 const styles = StyleSheet.create({
   page: { 
@@ -29,36 +33,45 @@ const styles = StyleSheet.create({
   text: {
     position: "absolute",   
     marginHorizontal: 'auto',
-    color:"#fff",
     fontStyle: 'normal',
     fontWeight: 600,
-
   }
 });
 
 
-const MyDoc = () => (
+export const CardPDF = ({name, repo, theme}: prfProps) => {
+  const themeCard={
+    image:{
+      green:"/bgCardGreen.jpg",
+      orange:"/bgCardOrange.jpg",
+      blue:"/bgCardBlue .jpg"
+    },
+    color:{
+      green: "#ffffff",
+      orange:"#FB8532",
+      blue:"#2188FF"
+    }
+  }
+  return(
   <Document>
     <Page style={styles.page} size={{width: 960, height:1920}}  orientation="landscape">
       <View style={styles.view}>
-        <Image style={styles.image} src={asjkdf} alt="" />
-        <Text style={{ fontSize: "101px",  left: '320px',top:"54px", ...styles.text }}>Gabriel Simon Gianotti</Text>
-        <Text style={{  left: '330px',top:"170px", fontSize: "60px", width:'1144px', height:"auto", ...styles.text }}>Fez uma contribuição para o repositorio swagger-js</Text>
+        <Image style={styles.image} src={themeCard.image[theme]}/>
+        <Text style={{ color: themeCard.color[theme], fontSize: "101px",  left: '320px',top:"54px", ...styles.text }}>{name}</Text>
+        <Text style={{ color: themeCard.color[theme], left: '330px',top:"170px", fontSize: "60px", width:'1144px', height:"auto", ...styles.text }}>Fez uma contribuição para o repositorio {repo}</Text>
       </View>
     </Page>
   </Document>
-);
+)};
 
 
 
-function Banner() {
-  
-  return (
-    <PDFDownloadLink document={<MyDoc />} fileName="somename.pdf">
+function Banner({name="????", repo="????", theme='green'}:prfProps) {
+return (
+    <PDFDownloadLink document={<CardPDF repo={repo} name={name} theme={theme} />} fileName="card.pdf">
       {({ blob, url, loading, error }) =>
         {
-          console.log( blob, url, loading, error)
-          return loading ? 'Loading document...' : 'Download now!'}
+          return loading ? 'Loading ...' : 'Download'}
       }
     </PDFDownloadLink>
   );
