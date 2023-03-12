@@ -24,16 +24,42 @@ export const PostContent = styled.div`
   /* border: 1px solid green; */
 
   footer {
-    button {
-      /* width: 100vw; */
-      height: 100vh;
-      max-height: 6rem;
-      font-size: 2.4rem;
-      padding: 1.6rem 4rem;
-      border: 0;
-      border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-      background-color: ${({ theme }) => theme.yellow};
+    width: 100%;
+    margin-top: 6.4rem;
+
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      gap: 4rem;
     }
   }
+`;
+
+export const PostThemeButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-height: 1rem;
+  max-width: 6rem;
+  border: 0;
+
+  background: transparent;
+`;
+
+export const PostDownloadButton = styled.button`
+  height: 100vh;
+  max-height: 6rem;
+  font-size: 2.4rem;
+  padding: 1.6rem 4rem;
+  border: 0;
+  border-radius: 5px;
+
+  background-color: ${({ theme }) => theme.yellow};
 `;

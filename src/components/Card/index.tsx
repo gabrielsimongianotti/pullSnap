@@ -1,21 +1,22 @@
-import { CardContainer, CardContent } from "./styles";
+import { CardContainer, CardContent, CardH1, CardSpan } from "./styles";
 
 import bkImgGreen from "../../assets/bgCardGreen.jpg";
 import Image, { StaticImageData } from "next/image";
 
 interface CardProps {
   image: StaticImageData;
-  title: string;
+  title?: string;
   subtitle: string;
+  colorTheme: string;
 }
 
-export function Card({ image, title, subtitle }: CardProps) {
+export function Card({ image, title, subtitle, colorTheme }: CardProps) {
   return (
     <CardContainer>
       <CardContent>
         <Image src={image} alt="" />
-        <h1>{title}</h1>
-        <span>{subtitle} </span>
+        <CardH1 color={colorTheme}>{title}</CardH1>
+        <CardSpan color={colorTheme}>{subtitle} </CardSpan>
       </CardContent>
     </CardContainer>
   );
