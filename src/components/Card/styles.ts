@@ -30,6 +30,7 @@ export const CardH1 = styled.h1`
 `;
 
 export const CardSpan = styled.span`
+  max-width: 46rem;
   color: ${(props) => props.color};
   font-size: 2rem;
   position: absolute;
