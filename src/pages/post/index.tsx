@@ -86,7 +86,7 @@ export default function Post() {
             </PostThemeButton>
           </div>
        
-          {!context.user?.repo 
+          { context.user?.repo === '????' 
           ? 
             <PostDownloadButton onClick={()=>{router.back()}}>
               voltar
