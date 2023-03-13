@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
   page: { 
     flexDirection: 'row',
     backgroundColor: '#1B1F23',
-
    },
    view: {
     width: '100%',
@@ -66,7 +65,7 @@ export const CardPDF = ({name, repo, theme}: prfProps) => {
 
 
 
-function Banner({name="????", repo="????", theme='green'}:prfProps) {
+function Banner({name, repo, theme}:prfProps) {
 return (
     <PDFDownloadLink document={<CardPDF repo={repo} name={name} theme={theme} />} fileName="card.pdf">
       {({ blob, url, loading, error }) =>

@@ -11,15 +11,14 @@ interface IAppContext {
 }
 
 const AppContext = createContext<IAppContext>({
-  user: undefined,
+  user: {name:'????', repo:"????"},
   updateUser: () => {},
 });
 
 const AppProvider = ({ children }: { children: JSX.Element }) => {
-  const [data, setData] = useState<IUser>();
+  const [data, setData] = useState<IUser>({name:'????', repo:"????"});
 
   function updateUser(user: IUser) {
-    console.log("update called", user);
     setData(user);
   }
 

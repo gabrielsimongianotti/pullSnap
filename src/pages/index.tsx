@@ -36,8 +36,6 @@ export default function Home() {
         .catch((error) => {
           console.log(error);
         });
-      console.log(response?.data.user.login, repo);
-
       const responseUser  = await api
         .get<responseUserProp>(`/users/${response?.data.user.login}`)
        

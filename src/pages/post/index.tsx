@@ -1,4 +1,6 @@
 import React, { useContext, useState } from "react";
+import { useRouter } from "next/router";
+
 import {
   PostContainer,
   PostContent,
@@ -39,6 +41,7 @@ const textTheme = {
 };
 
 export default function Post() {
+  const router = useRouter()
   const context = useContext(AppContext);
   const [theme, setTheme] = useState<'blue'|'green'|'orange'>("green");
   const [name, setName] = useState(context.user?.name);
@@ -56,7 +59,7 @@ export default function Post() {
           colorTheme={textTheme[theme]['color']}
           image={textTheme[theme]['background']}
           title={name}
-          subtitle={`Fez uma contribuição para o repositório sdf sd fsdf ${repo}`}
+          subtitle={`Fez uma contribuição para o repositório ${repo}`}
         />
         <footer>
           <div>
@@ -82,11 +85,17 @@ export default function Post() {
               <ThemeButtonBlue />
             </PostThemeButton>
           </div>
-
-          <PostDownloadButton
-          >
-            <Banner name={name}  repo={repo} theme={theme}/>
-          </PostDownloadButton>
+       
+          {!context.user?.repo 
+          ? 
+            <PostDownloadButton onClick={()=>{router.back()}}>
+              voltar
+            </PostDownloadButton>
+          :
+            <PostDownloadButton>
+              <Banner name={name}repo={repo} theme={theme}/>
+            </PostDownloadButton>
+          }
         </footer>
       </PostContent>
     </PostContainer>
