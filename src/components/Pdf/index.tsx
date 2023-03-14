@@ -67,7 +67,7 @@ export const CardPDF = ({name, repo, theme}: prfProps) => {
 
 function Banner({name, repo, theme}:prfProps) {
 return (
-    <PDFDownloadLink document={<CardPDF repo={repo} name={name} theme={theme} />} fileName="card.pdf">
+    <PDFDownloadLink style={{padding: "1.6rem 4rem"}} document={<CardPDF repo={repo} name={name} theme={theme} />} fileName="card.pdf">
       {({ blob, url, loading, error }) =>
         {
           return loading ? 'Loading ...' : 'Download'}
