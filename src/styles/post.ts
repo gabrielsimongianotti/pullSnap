@@ -57,7 +57,6 @@ export const PostDownloadButton = styled.button`
   height: 100vh;
   max-height: 6rem;
   font-size: 2.4rem;
-  padding: 1.6rem 4rem;
   border: 0;
   border-radius: 5px;
 
