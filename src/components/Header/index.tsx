@@ -5,9 +5,14 @@ export function Header() {
   return (
     <HeaderContainer>
       <HeaderContent>
-        <Link href='/'>
+        <Link href="/">
           <h1>Pull Snap</h1>
         </Link>
+        <div>
+          <button>Pt-Br</button>
+          <span>|</span>
+          <button>Eng</button>
+        </div>
       </HeaderContent>
     </HeaderContainer>
   );

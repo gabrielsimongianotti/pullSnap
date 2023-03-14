@@ -1,0 +1,25 @@
+import styled from "styled-components";
+
+export const FooterContainer = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+export const FooterContent = styled.div`
+  width: 100%;
+  max-width: 112rem;
+  padding: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+
+  span {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  /* border: 1px solid red; */
+`;
