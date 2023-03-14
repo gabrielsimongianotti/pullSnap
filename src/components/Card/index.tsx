@@ -12,15 +12,18 @@ interface CardProps {
   title?: string;
   subtitle: string;
   colorTheme: string;
+  prUrl: string | undefined
 }
 
-export function Card({ image, title, subtitle, colorTheme }: CardProps) {
+export function Card({ image, title, subtitle, colorTheme, prUrl }: CardProps) {
   return (
     <CardContainer>
       <CardContent>
-        <Image src={image} alt="" />
-        <CardH1 color={colorTheme}>{title}</CardH1>
-        <CardSpan color={colorTheme}>{subtitle} </CardSpan>
+        <a href={prUrl} target="_blank">
+          <Image src={image} alt="" />
+          <CardH1 color={colorTheme}>{title}</CardH1>
+          <CardSpan color={colorTheme}>{subtitle} </CardSpan>
+        </a>
       </CardContent>
     </CardContainer>
   );

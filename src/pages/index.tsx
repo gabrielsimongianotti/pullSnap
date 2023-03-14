@@ -41,6 +41,7 @@ export default function Home() {
        
         const infoUser ={
           name: responseUser?.data.name,
+          prUrl,
           repo
         }
 
