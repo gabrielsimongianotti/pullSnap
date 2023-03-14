@@ -59,6 +59,7 @@ export default function Post() {
           colorTheme={textTheme[theme]['color']}
           image={textTheme[theme]['background']}
           title={name}
+          prUrl={context.user?.prUrl}
           subtitle={`Fez uma contribuição para o repositório ${repo}`}
         />
         <footer>
