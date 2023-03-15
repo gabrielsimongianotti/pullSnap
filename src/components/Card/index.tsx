@@ -1,19 +1,8 @@
-import { 
-  CardContainer, 
-  CardContent, 
-  CardH1, 
-  CardSpan 
-} from "./styles";
+import Image from "next/image";
 
-import Image, { StaticImageData } from "next/image";
+import { CardContainer, CardContent, CardH1, CardSpan } from "./styles";
 
-interface CardProps {
-  image: StaticImageData;
-  title?: string;
-  subtitle: string;
-  colorTheme: string;
-  prUrl: string | undefined
-}
+import { CardProps } from "./types";
 
 export function Card({ image, title, subtitle, colorTheme, prUrl }: CardProps) {
   return (
