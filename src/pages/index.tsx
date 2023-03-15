@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
-import { useRouter } from "next/router";
 import Image from "next/image";
 import Head from "next/head";
+import { useRouter } from "next/router";
+import React, { useContext } from "react";
 
 import bannerImg from "@/assets/banner.svg";
-import { Search } from "@/components/Search";
+
+import { Search } from "@/components";
+
 import { api } from "@/services/api";
 
 import { HomeContainer, HomeContent } from "@/styles/home";
@@ -20,7 +22,7 @@ interface responseUserProp {
   name: string;
 }
 export default function Home() {
-  const router = useRouter()
+  const router = useRouter();
   const context = useContext(AppContext);
 
   const searchPullRequest = async (prUrl: string) => {
@@ -32,23 +34,25 @@ export default function Home() {
       const repo: string = match[2];
       const pull_number: string = match[3];
       const response = await api
-        .get<responsePullRequestProp>(`/repos/${owner}/${repo}/pulls/${pull_number}`)
+        .get<responsePullRequestProp>(
+          `/repos/${owner}/${repo}/pulls/${pull_number}`
+        )
         .catch((error) => {
           console.log(error);
         });
-      const responseUser  = await api
-        .get<responseUserProp>(`/users/${response?.data.user.login}`)
-       
-        const infoUser ={
-          name: responseUser?.data.name,
-          prUrl,
-          repo
-        }
+      const responseUser = await api.get<responseUserProp>(
+        `/users/${response?.data.user.login}`
+      );
 
-        context.updateUser(infoUser);
-        router.push('/post')
-    }
-    else {
+      const infoUser = {
+        name: responseUser?.data.name,
+        prUrl,
+        repo,
+      };
+
+      context.updateUser(infoUser);
+      router.push("/post");
+    } else {
       console.log("Invalid URL");
     }
   };
