@@ -1,11 +1,12 @@
-// import "@/styles/globals.ts";
-import { Header } from "@/components/Header";
-import { GlobalStyle } from "@/styles/global";
-import { defaultTheme } from "@/styles/themes/default";
 import type { AppProps } from "next/app";
-import { ThemeProvider } from "styled-components";
 import { AppProvider } from "@/context";
+import { ThemeProvider } from "styled-components";
+
 import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
+
+import { defaultTheme } from "@/styles/themes/default";
+import { GlobalStyle } from "@/styles/global";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

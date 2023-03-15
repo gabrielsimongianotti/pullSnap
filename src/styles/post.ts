@@ -25,7 +25,7 @@ export const PostContent = styled.div`
     justify-content: space-between;
 
     width: 100%;
-    margin-top: 6.4rem;
+    margin-top: 3.2rem;
 
     div {
       display: flex;
@@ -37,6 +37,7 @@ export const PostContent = styled.div`
 
     @media (max-width: 530px) {
       flex-direction: column;
+      margin-top: 1.6rem;
 
       div {
         justify-content: center;

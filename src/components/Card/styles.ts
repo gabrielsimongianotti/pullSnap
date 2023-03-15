@@ -31,6 +31,12 @@ export const CardH1 = styled.h1`
   position: absolute;
   top: 1.7rem;
   left: 13.3rem;
+
+  @media (max-width: 600px) {
+    font-size: 2rem;
+    top: 1.56;
+    left: 6.8rem;
+  }
 `;
 
 export const CardSpan = styled.span`
@@ -40,4 +46,10 @@ export const CardSpan = styled.span`
   position: absolute;
   top: 8rem;
   left: 13.3rem;
+
+  @media (max-width: 600px) {
+    font-size: 1.5rem;
+    top: 4rem;
+    left: 6.8rem;
+  }
 `;
