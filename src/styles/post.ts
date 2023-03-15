@@ -34,6 +34,14 @@ export const PostContent = styled.div`
       width: 100%;
       gap: 4rem;
     }
+
+    @media (max-width: 530px) {
+      flex-direction: column;
+
+      div {
+        justify-content: center;
+      }
+    }
   }
 `;
 
@@ -52,11 +60,18 @@ export const PostThemeButton = styled.div`
   background: transparent;
 
   :hover {
-    max-width: 6.4rem;
-    max-height: 6.4rem;
     opacity: 1;
     border: 6px solid ${({ theme }) => theme.yellow};
     border-radius: 50%;
+  }
+
+  @media (max-width: 530px) {
+    max-width: 3.2rem;
+    max-height: 3.2rem;
+
+    :hover {
+      border: 3px solid ${({ theme }) => theme.yellow};
+    }
   }
 `;
 
@@ -73,4 +88,9 @@ export const PostDownloadButton = styled.button`
   border-radius: 5px;
 
   background-color: ${({ theme }) => theme.yellow};
+
+  @media (max-width: 530px) {
+    width: 100%;
+    margin-top: 3.2rem;
+  }
 `;
