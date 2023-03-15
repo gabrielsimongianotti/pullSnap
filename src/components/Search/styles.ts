@@ -16,8 +16,6 @@ export const SearchContent = styled.div`
   justify-content: center;
 
   width: 100%;
-
-  padding: 0 2rem;
   max-width: 77rem;
 
   input {
@@ -42,7 +40,8 @@ export const SearchContent = styled.div`
     height: 100vh;
     max-height: 6rem;
     font-size: 1.6rem;
-    padding: 1.8rem;
+    font-weight: 700;
+    padding: 1.6rem 3.2rem;
     border: 0;
     border-radius: 5px;
 

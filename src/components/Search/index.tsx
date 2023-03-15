@@ -23,8 +23,12 @@ export function Search({ label, textButton, action }: SearchProps) {
             action(searchUrlPullReq);
           }}
         >
-          <GrSearch size={17} fontWeight="bold" />
-          {/* <BiEditAlt size={17} fontWeight="bold" /> */}
+          {textButton === "Editar" ? (
+            <BiEditAlt size={17} fontWeight="bold" />
+          ) : (
+            <GrSearch size={17} fontWeight="bold" />
+          )}
+
           {textButton}
         </button>
       </SearchContent>

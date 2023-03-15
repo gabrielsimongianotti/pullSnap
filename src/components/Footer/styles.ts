@@ -16,9 +16,15 @@ export const FooterContent = styled.div`
   justify-content: flex-end;
   gap: 1rem;
 
-  span {
-    font-size: 2rem;
-    font-weight: 700;
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      font-size: 2rem;
+      font-weight: 700;
+    }
   }
 
   /* border: 1px solid red; */

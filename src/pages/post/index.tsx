@@ -18,6 +18,7 @@ import ThemeButtonBlue from "@/assets/icons/themeButtonBlue";
 import ThemeButtonGreen from "@/assets/icons/themeButtonGreen";
 import ThemeButtonOrange from "@/assets/icons/themeButtonOrange";
 import { AppContext } from "@/context";
+import { BiArrowBack } from "react-icons/bi";
 
 const themeBk = {
   blue: bgCardBlue,
@@ -41,9 +42,9 @@ const textTheme = {
 };
 
 export default function Post() {
-  const router = useRouter()
+  const router = useRouter();
   const context = useContext(AppContext);
-  const [theme, setTheme] = useState<'blue'|'green'|'orange'>("green");
+  const [theme, setTheme] = useState<"blue" | "green" | "orange">("green");
   const [name, setName] = useState(context.user?.name);
   const repo = context.user?.repo;
 
@@ -56,8 +57,8 @@ export default function Post() {
           action={(name) => setName(name)}
         />
         <Card
-          colorTheme={textTheme[theme]['color']}
-          image={textTheme[theme]['background']}
+          colorTheme={textTheme[theme]["color"]}
+          image={textTheme[theme]["background"]}
           title={name}
           prUrl={context.user?.prUrl}
           subtitle={`Fez uma contribuição para o repositório ${repo}`}
@@ -66,37 +67,41 @@ export default function Post() {
           <div>
             <PostThemeButton
               onClick={() => {
-                setTheme("orange")
+                setTheme("orange");
               }}
             >
               <ThemeButtonOrange />
             </PostThemeButton>
             <PostThemeButton
               onClick={() => {
-                setTheme("green")
+                setTheme("green");
               }}
             >
               <ThemeButtonGreen />
             </PostThemeButton>
             <PostThemeButton
               onClick={() => {
-                setTheme('blue')
+                setTheme("blue");
               }}
             >
               <ThemeButtonBlue />
             </PostThemeButton>
           </div>
-       
-          { context.user?.repo === '????' 
-          ? 
-            <PostDownloadButton onClick={()=>{router.back()}}>
-              voltar
+
+          {context.user?.repo === "????" ? (
+            <PostDownloadButton
+              onClick={() => {
+                router.back();
+              }}
+            >
+              <BiArrowBack />
+              Voltar
             </PostDownloadButton>
-          :
+          ) : (
             <PostDownloadButton>
-              <Banner name={name}repo={repo} theme={theme}/>
+              <Banner name={name} repo={repo} theme={theme} />
             </PostDownloadButton>
-          }
+          )}
         </footer>
       </PostContent>
     </PostContainer>

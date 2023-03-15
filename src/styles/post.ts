@@ -7,8 +7,6 @@ export const PostContainer = styled.div`
   padding-top: 5.6rem;
 
   flex-direction: column;
-
-  /* border: 1px solid red; */
 `;
 
 export const PostContent = styled.div`
@@ -18,10 +16,8 @@ export const PostContent = styled.div`
   flex-direction: column;
 
   width: 100%;
-  max-width: 80rem;
-  height: 100bh;
-
-  /* border: 1px solid green; */
+  max-width: 77rem;
+  padding: 0 2rem;
 
   footer {
     display: flex;
@@ -46,14 +42,30 @@ export const PostThemeButton = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-height: 1rem;
-  max-width: 6rem;
-  border: 0;
+  max-width: 6.4rem;
+  max-height: 6.4rem;
+
+  opacity: 0.5;
+
+  transition: 0.5s;
 
   background: transparent;
+
+  :hover {
+    max-width: 6.4rem;
+    max-height: 6.4rem;
+    opacity: 1;
+    border: 6px solid ${({ theme }) => theme.yellow};
+    border-radius: 50%;
+  }
 `;
 
 export const PostDownloadButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.6rem 3.2rem;
   height: 100vh;
   max-height: 6rem;
   font-size: 2.4rem;
