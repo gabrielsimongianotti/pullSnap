@@ -1,6 +1,4 @@
-import styled, { css } from "styled-components";
-import { StaticImageData } from "next/image";
-import { ValueOf } from "next/dist/shared/lib/constants";
+import styled from 'styled-components'
 
 export const CardContainer = styled.div`
   width: 100%;
@@ -10,7 +8,8 @@ export const CardContainer = styled.div`
   flex-direction: column;
 
   padding-top: 5.6rem;
-`;
+`
+
 export const CardContent = styled.div`
   position: relative;
 
@@ -19,7 +18,7 @@ export const CardContent = styled.div`
     height: 100%;
     position: relative;
   }
-`;
+`
 
 export const CardH1 = styled.h1`
   color: ${(props) => props.color};
@@ -37,7 +36,7 @@ export const CardH1 = styled.h1`
     top: 1.56;
     left: 6.8rem;
   }
-`;
+`
 
 export const CardSpan = styled.span`
   color: ${(props) => props.color};
@@ -52,4 +51,4 @@ export const CardSpan = styled.span`
     top: 4rem;
     left: 6.8rem;
   }
-`;
+`

@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { HeaderContainer, HeaderContent } from "./styles";
+import Link from 'next/link'
+import { HeaderContainer, HeaderContent } from './styles'
 
 export function Header() {
   return (
@@ -15,5 +15,5 @@ export function Header() {
         </div>
       </HeaderContent>
     </HeaderContainer>
-  );
+  )
 }

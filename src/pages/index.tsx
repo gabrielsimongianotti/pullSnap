@@ -1,61 +1,61 @@
-import Image from "next/image";
-import Head from "next/head";
-import { useRouter } from "next/router";
-import React, { useContext } from "react";
+import Image from 'next/image'
+import Head from 'next/head'
+import { useRouter } from 'next/router'
+import React, { useContext } from 'react'
 
-import bannerImg from "@/assets/banner.svg";
+import bannerImg from '@/assets/banner.svg'
 
-import { Search } from "@/components";
+import { Search } from '@/components'
 
-import { api } from "@/services/api";
+import { api } from '@/services/api'
 
-import { HomeContainer, HomeContent } from "@/styles/home";
+import { HomeContainer, HomeContent } from '@/styles/home'
 
-import { AppContext } from "@/context";
+import { AppContext } from '@/context'
 
 interface responsePullRequestProp {
   user: {
-    login: string;
-  };
+    login: string
+  }
 }
 interface responseUserProp {
-  name: string;
+  name: string
 }
 export default function Home() {
-  const router = useRouter();
-  const context = useContext(AppContext);
+  const router = useRouter()
+  const context = useContext(AppContext)
 
   const searchPullRequest = async (prUrl: string) => {
     const match: RegExpMatchArray | null = prUrl.match(
-      /https:\/\/github\.com\/([^/]+)\/([^/]+)\/pull\/(\d+)/
-    );
+      /https:\/\/github\.com\/([^/]+)\/([^/]+)\/pull\/(\d+)/,
+    )
     if (match) {
-      const owner: string = match[1];
-      const repo: string = match[2];
-      const pull_number: string = match[3];
+      const owner: string = match[1]
+      const repo: string = match[2]
+      const pullNumber: string = match[3]
       const response = await api
         .get<responsePullRequestProp>(
-          `/repos/${owner}/${repo}/pulls/${pull_number}`
+          `/repos/${owner}/${repo}/pulls/${pullNumber}`,
         )
         .catch((error) => {
-          console.log(error);
-        });
+          console.log(error)
+        })
       const responseUser = await api.get<responseUserProp>(
-        `/users/${response?.data.user.login}`
-      );
+        `/users/${response?.data.user.login}`,
+      )
 
       const infoUser = {
         name: responseUser?.data.name,
         prUrl,
         repo,
-      };
+      }
 
-      context.updateUser(infoUser);
-      router.push("/post");
+      context.updateUser(infoUser)
+      router.push('/post')
     } else {
-      console.log("Invalid URL");
+      console.log('Invalid URL')
     }
-  };
+  }
 
   return (
     <>
@@ -76,5 +76,5 @@ export default function Home() {
         </HomeContent>
       </HomeContainer>
     </>
-  );
+  )
 }

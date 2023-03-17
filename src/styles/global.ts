@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
 *{
@@ -7,10 +7,10 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     list-style: none;
 }
-:focus {
-    outline: 0;
-    box-shadow: 0 0 0 2px ${({ theme }) => theme.border};
-  }
+
+input:focus {
+  outline: 0;
+}
 
 
 html{
@@ -40,8 +40,8 @@ a, button, img{
 }
 
 a{
-    color: inherit; // poe a cor do link a mesma do elemento pai
-    text-decoration:none; //tirar o underline dos links
+    color: inherit;
+    text-decoration: none;
 }
 
-`;
+`

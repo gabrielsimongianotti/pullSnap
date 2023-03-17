@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const PostContainer = styled.div`
   display: flex;
@@ -7,7 +7,7 @@ export const PostContainer = styled.div`
   padding-top: 5.6rem;
 
   flex-direction: column;
-`;
+`
 
 export const PostContent = styled.div`
   display: flex;
@@ -44,7 +44,7 @@ export const PostContent = styled.div`
       }
     }
   }
-`;
+`
 
 export const PostThemeButton = styled.div`
   display: flex;
@@ -74,7 +74,7 @@ export const PostThemeButton = styled.div`
       border: 3px solid ${({ theme }) => theme.yellow};
     }
   }
-`;
+`
 
 export const PostDownloadButton = styled.button`
   display: flex;
@@ -94,4 +94,4 @@ export const PostDownloadButton = styled.button`
     width: 100%;
     margin-top: 3.2rem;
   }
-`;
+`
