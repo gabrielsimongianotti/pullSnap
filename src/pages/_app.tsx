@@ -2,8 +2,7 @@ import type { AppProps } from "next/app";
 import { AppProvider } from "@/context";
 import { ThemeProvider } from "styled-components";
 
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
+import { Header, Footer } from "@/components";
 
 import { defaultTheme } from "@/styles/themes/default";
 import { GlobalStyle } from "@/styles/global";
