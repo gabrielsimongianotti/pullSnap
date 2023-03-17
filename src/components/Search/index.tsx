@@ -1,11 +1,11 @@
-import { SearchContainer, SearchContent } from "./styles";
-import { useState } from "react";
-import { GrSearch } from "react-icons/gr";
-import { BiEditAlt } from "react-icons/bi";
-import { SearchProps } from "./types";
+import { SearchContainer, SearchContent } from './styles'
+import { useState } from 'react'
+import { GrSearch } from 'react-icons/gr'
+import { BiEditAlt } from 'react-icons/bi'
+import { SearchProps } from './types'
 
 export function Search({ label, textButton, action }: SearchProps) {
-  const [searchUrlPullReq, setSearchUrlPullReq] = useState("");
+  const [searchUrlPullReq, setSearchUrlPullReq] = useState('')
   return (
     <SearchContainer>
       <SearchContent>
@@ -16,10 +16,10 @@ export function Search({ label, textButton, action }: SearchProps) {
         />
         <button
           onClick={() => {
-            action(searchUrlPullReq);
+            action(searchUrlPullReq)
           }}
         >
-          {textButton === "Editar" ? (
+          {textButton === 'Editar' ? (
             <BiEditAlt size={17} fontWeight="bold" />
           ) : (
             <GrSearch size={17} fontWeight="bold" />
@@ -29,5 +29,5 @@ export function Search({ label, textButton, action }: SearchProps) {
         </button>
       </SearchContent>
     </SearchContainer>
-  );
+  )
 }

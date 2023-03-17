@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 function ThemeButtonOrange() {
   return (
@@ -22,7 +22,7 @@ function ThemeButtonOrange() {
         d="M54.627 9.373A32 32 0 009.373 54.627L32 32 54.627 9.373z"
       ></path>
     </svg>
-  );
+  )
 }
 
-export default ThemeButtonOrange;
+export default ThemeButtonOrange

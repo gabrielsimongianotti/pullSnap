@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const FooterContainer = styled.div`
   width: 100%;
@@ -7,7 +7,7 @@ export const FooterContainer = styled.div`
   justify-content: center;
 
   margin-top: 7.7rem;
-`;
+`
 export const FooterContent = styled.div`
   width: 100%;
   max-width: 112rem;
@@ -30,4 +30,4 @@ export const FooterContent = styled.div`
   }
 
   /* border: 1px solid red; */
-`;
+`

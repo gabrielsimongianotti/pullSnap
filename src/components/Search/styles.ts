@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const SearchContainer = styled.div`
   display: flex;
@@ -8,7 +8,7 @@ export const SearchContainer = styled.div`
   width: 100%;
 
   /* border: 1px solid red; */
-`;
+`
 
 export const SearchContent = styled.div`
   display: flex;
@@ -47,4 +47,4 @@ export const SearchContent = styled.div`
 
     background-color: ${({ theme }) => theme.yellow};
   }
-`;
+`
