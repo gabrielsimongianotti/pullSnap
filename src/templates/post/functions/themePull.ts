@@ -1,6 +1,6 @@
-import bkImgGreen from "../../assets/bgCardGreen.jpg";
-import bgCardOrange from "../../assets/bgCardOrange.jpg";
-import bgCardBlue from "../../assets/bgCardBlue.jpg";
+import bkImgGreen from "@/assets/bgCardGreen.jpg";
+import bgCardOrange from "@/assets/bgCardOrange.jpg";
+import bgCardBlue from "@/assets/bgCardBlue.jpg";
 
 export const themeBk = {
   blue: bgCardBlue,
