@@ -57,13 +57,14 @@ export const PostThemeButton = styled.div`
   opacity: 0.5;
 
   transition: 0.5s;
+  border-radius: 50%;
 
   background: transparent;
 
   :hover {
     opacity: 1;
     border: 6px solid ${({ theme }) => theme.yellow};
-    border-radius: 50%;
+    
   }
 
   @media (max-width: 530px) {
