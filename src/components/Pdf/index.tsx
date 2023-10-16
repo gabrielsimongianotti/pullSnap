@@ -81,7 +81,7 @@ export const CardPDF = ({ name, repo, theme }: prfProps) => {
               ...styles.text,
             }}
           >
-            Fez uma contribuição para o repositorio {repo}
+            Made a contribution to the repository {repo}
           </Text>
         </View>
       </Page>
