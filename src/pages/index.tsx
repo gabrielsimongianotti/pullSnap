@@ -68,8 +68,8 @@ export default function Home() {
       <HomeContainer>
         <HomeContent>
           <Search
-            label="Link do Pull Request"
-            textButton="Pesquisar"
+            label="Link of Pull Request"
+            textButton="Research"
             action={(url) => searchPullRequest(url)}
           />
           <Image src={bannerImg} alt="" priority />

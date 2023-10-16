@@ -52,8 +52,8 @@ export default function Post() {
     <PostContainer>
       <PostContent>
         <Search
-          label="Editar nome"
-          textButton="Editar"
+          label="Edit name"
+          textButton="Edit"
           action={(name) => setName(name)}
         />
         <Card
@@ -61,7 +61,7 @@ export default function Post() {
           image={textTheme[theme].background}
           title={name}
           prUrl={context.user?.prUrl}
-          subtitle={`Fez uma contribuição para o repositório ${repo}`}
+          subtitle={`Made a contribution to the repository ${repo}`}
         />
         <footer>
           <div>
