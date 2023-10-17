@@ -2,6 +2,9 @@
 
 The goal of this project is to create a customized banner to highlight your contributions through pull requests in open-source projects hosted on GitHub. With this tool, you'll be able to showcase your achievements and involvement in the developer community in a unique and engaging way.
 
+
+![image](https://github.com/gabrielsimongianotti/pullSnap/assets/26278442/f713cd5e-cc1f-4309-b068-eb568092d6e2)
+
 ## Configuring Environment Variables
 
 1.  Access this link for information on how to create a Personal Access Token on GitHub.
