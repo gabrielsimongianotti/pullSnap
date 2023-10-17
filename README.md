@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## objective of pullsnap
+
+The goal of this project is to create a customized banner to highlight your contributions through pull requests in open-source projects hosted on GitHub. With this tool, you'll be able to showcase your achievements and involvement in the developer community in a unique and engaging way.
 
 ## Configuring Environment Variables
 
