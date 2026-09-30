@@ -54,7 +54,7 @@ export default function Post() {
         <Search
           label="Edit name"
           textButton="Edit"
-          action={(name) => setName(name)}
+          action={async (name) => setName(name)}
         />
         <Card
           colorTheme={textTheme[theme].color}
