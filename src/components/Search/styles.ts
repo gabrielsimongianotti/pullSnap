@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+import { IoReloadSharp } from "react-icons/io5";
 
 export const SearchContainer = styled.div`
   display: flex;
@@ -8,6 +9,19 @@ export const SearchContainer = styled.div`
   width: 100%;
 
   /* border: 1px solid red; */
+`
+
+const rotateAnimation = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}`
+
+export const LoadSharp = styled(IoReloadSharp)`
+  animation: ${rotateAnimation} 1s linear infinite;
 `
 
 export const SearchContent = styled.div`
