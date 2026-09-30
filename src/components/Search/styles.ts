@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components'
-import { IoReloadSharp } from "react-icons/io5";
+import { IoReloadSharp } from 'react-icons/io5'
 
 export const SearchContainer = styled.div`
   display: flex;

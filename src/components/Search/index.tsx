@@ -5,8 +5,8 @@ import { BiEditAlt } from 'react-icons/bi'
 import { SearchProps } from './types'
 export function Search({ label, textButton, action }: SearchProps) {
   const [searchUrlPullReq, setSearchUrlPullReq] = useState('')
-
   const [loading, setLoading] = useState(false)
+
   return (
     <SearchContainer>
       <SearchContent>
@@ -22,7 +22,6 @@ export function Search({ label, textButton, action }: SearchProps) {
             setLoading(false)
           }}
         >
-
           {textButton === 'Editar' ? (
             <BiEditAlt size={17} fontWeight="bold" />
           ) : loading ? (
@@ -30,7 +29,6 @@ export function Search({ label, textButton, action }: SearchProps) {
           ) : (
             <GrSearch size={17} fontWeight="bold" />
           )}
-
           {textButton}
         </button>
       </SearchContent>
